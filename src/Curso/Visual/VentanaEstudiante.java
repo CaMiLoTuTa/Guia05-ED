@@ -21,10 +21,6 @@ public class VentanaEstudiante extends javax.swing.JFrame {
     // ? para el estudiante y la clase Estudiantes.
     // ? Debe existir un menú de gestión donde cree el estudiante y lo asigne al //
     // ? HashMap y utilizar métodos para lo siguiente: 
-    // ? • Inserta información.
-    // ? • Consultar información.
-    // ? • Modificar información.
-    // ? • Borrar información.
     // ? • Notas: las operaciones se deben realizar en el HashMap
 
     HashMap<String, Estudiante> curso = new HashMap<String, Estudiante>();
@@ -36,6 +32,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
 
     String codEst, nombresEst, apellidosEst, direccionEst, celularEst, programaAcEst;
 
+    // ? • Inserta información.
     private void registrar() {
         Estudiante estAgregar = new Estudiante();
         codEst = tfCodigo.getText();
@@ -61,6 +58,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         }
     }
 
+    // ? • Consultar información.
     private void buscar() {
         codEst = tfCodigo.getText();
 
@@ -83,6 +81,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         }
     }
 
+    // ? • Borrar información.
     private void borrar() {
         codEst = tfCodigo.getText();
 
@@ -309,6 +308,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         limpiar();
     }
 
+    // ? • Modificar información.
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         registrar();
     }
