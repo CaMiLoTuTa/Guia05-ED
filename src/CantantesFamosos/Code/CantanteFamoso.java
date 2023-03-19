@@ -2,7 +2,7 @@ package CantantesFamosos.Code;
 
 public class CantanteFamoso {
 
-    String nombre, discoConMasVentas;
+    String nombre, discoMasFamoso, discoVentas;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -12,12 +12,20 @@ public class CantanteFamoso {
         return nombre;
     }
 
-    public void setDiscoConMasVentas(String discoConMasVentas) {
-        this.discoConMasVentas = discoConMasVentas;
+    public void setDiscoMasFamoso(String discoMasFamoso) {
+        this.discoMasFamoso = discoMasFamoso;
     }
 
-    public String getDiscoConMasVentas() {
-        return discoConMasVentas;
+    public String getDiscoMasFamoso() {
+        return discoMasFamoso;
+    }
+
+    public void setDiscoVentas(String discoVentas) {
+        this.discoVentas = discoVentas;
+    }
+
+    public String getDiscoVentas() {
+        return discoVentas;
     }
 
 }
