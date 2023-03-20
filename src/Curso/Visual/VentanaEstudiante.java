@@ -7,8 +7,6 @@ package Curso.Visual;
 import Curso.Code.Estudiante;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 import javax.swing.*;
 
@@ -25,7 +23,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
     // ? HashMap y utilizar métodos para lo siguiente: 
     // ? • Notas: las operaciones se deben realizar en el HashMap
 
-    HashMap<String, Estudiante> curso = new HashMap<String, Estudiante>();
+    static HashMap<String, Estudiante> curso = new HashMap<String, Estudiante>();
 
     public VentanaEstudiante() {
         initComponents();
@@ -45,10 +43,10 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         programaAcEst = cbProgramaAc.getSelectedItem().toString();
 
         if (tfCodigo.getText().isEmpty() || nombresEst.equals("") || apellidosEst.equals("") || direccionEst.equals("") || celularEst.equals("")) {
-            JOptionPane.showMessageDialog(null, "TODOS LOS CAMPOS DEBEN ESTAR LLENOS");
+            JOptionPane.showMessageDialog(null, "TODOS LOS CAMPOS DEBEN ESTAR LLENOS.");
 
         } else if (curso.containsKey(codEst) && bool == 0) {
-            JOptionPane.showMessageDialog(null, "EL ESTUDIANTE YA SE ENCUENTRA REGISTRADO");
+            JOptionPane.showMessageDialog(null, "EL ESTUDIANTE YA SE ENCUENTRA REGISTRADO.");
 
         } else {
             estAgregar.setNombres(nombresEst);
@@ -58,7 +56,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
             estAgregar.setProgramaAc(programaAcEst);
 
             curso.put(codEst, estAgregar);
-            JOptionPane.showMessageDialog(null, "ESTUDIANTE REGISTRADO CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "ESTUDIANTE REGISTRADO CORRECTAMENTE.");
             limpiar();
         }
     }
@@ -68,7 +66,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         codEst = tfCodigo.getText();
 
         if (!(curso.containsKey(codEst)) || tfCodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "CÓDIGO INCORRECTO");
+            JOptionPane.showMessageDialog(null, "CÓDIGO INCORRECTO.");
         } else {
             Estudiante estBuscado = curso.get(codEst);
 
@@ -91,12 +89,12 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         codEst = tfCodigo.getText();
 
         if (!(curso.containsKey(codEst)) || tfCodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "CÓDIGO INCORRECTO");
+            JOptionPane.showMessageDialog(null, "CÓDIGO INCORRECTO.");
 
         } else {
             curso.remove(codEst);
             limpiar();
-            JOptionPane.showMessageDialog(null, "ESTUDIANTE ELIMINADO CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "ESTUDIANTE ELIMINADO CORRECTAMENTE.");
         }
     }
 
@@ -106,22 +104,6 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         tfApellidos.setText("");
         tfDireccion.setText("");
         tfCelular.setText("");
-    }
-
-    private void mostrar() {
-        String text = "";
-
-        Iterator<Map.Entry<String, Estudiante>> cursoIt = curso.entrySet().iterator();
-        while (cursoIt.hasNext()) {
-            Map.Entry<String, Estudiante> sigEst = cursoIt.next();
-            text += sigEst.getKey() + ": " + sigEst.getValue().getNombres() + " " + sigEst.getValue().getApellidos() + ", " + sigEst.getValue().getDireccion() + ", " + sigEst.getValue().getCelular() + ", " + sigEst.getValue().getProgramaAc() + ".\n\n";
-        }
-
-        if (text.equals("")) {
-            text = "NO HAY NINGÚN ESTUDIANTE REGISTRADO";
-        }
-
-        JOptionPane.showMessageDialog(null, text);
     }
 
     /**
@@ -320,7 +302,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
 
     // iterar un hashmap con for en java 
     private void btnListadoActionPerformed(java.awt.event.ActionEvent evt) {
-        mostrar();
+        VentanaListaEstudiantes.mostrar();
     }
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {
