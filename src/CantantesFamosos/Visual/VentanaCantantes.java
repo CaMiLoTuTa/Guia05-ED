@@ -252,7 +252,7 @@ public class VentanaCantantes extends javax.swing.JFrame {
     }
 
     private void btnListadoActionPerformed(java.awt.event.ActionEvent evt) {
-        ListaCantantes.mostrar();
+        VentanaListaCantantes.mostrar();
     }
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {
