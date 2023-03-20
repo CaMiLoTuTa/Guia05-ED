@@ -25,28 +25,34 @@ public class VentanaCantantes extends javax.swing.JFrame {
 
     static ListaCantantesFamosos lisCanFam = new ListaCantantesFamosos();
 
-    String nombreCan, discoMasFam, discoVentas;
+    String nombreCan, discoMasFam;
+    int discoVentas;
 
     public void buscar() {
         nombreCan = tfNombreCantante.getText();
+
         if (nombreCan.equals("")) {
             JOptionPane.showMessageDialog(null, "EL CAMPO DE NOMBRE ES OBLIGATORIO.");
         } else if (!ListaCantantesFamosos.cantantes.isEmpty()) {
+            String busNom = "";
             for (CantanteFamoso i : ListaCantantesFamosos.cantantes) {
-                String busNom = i.getNombre();
+                busNom = i.getNombre();
 
                 if (nombreCan.equals(busNom)) {
                     tfNombreCantante.setText(i.getNombre());
                     tfDiscoMasFamoso.setText(i.getDiscoMasFamoso());
-                    tfDiscoVentas.setText(i.getDiscoVentas());
+                    tfDiscoVentas.setText(String.valueOf(i.getDiscoVentas()));
+                    break;
 
-                } else if (!nombreCan.equals(busNom)) {
-                    JOptionPane.showMessageDialog(null, "EL CANTANTE NO SE ENCUENTRA REGISTRADO.");
+                } else {
+                    busNom = "";
                 }
+            }
+            if (busNom.equals("")) {
+                JOptionPane.showMessageDialog(null, "EL CANTANTE NO SE ENCUENTRA REGISTRADO.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "LA LISTA ESTÁ VACÍA.");
-
         }
     }
 
@@ -216,7 +222,11 @@ public class VentanaCantantes extends javax.swing.JFrame {
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {
         nombreCan = tfNombreCantante.getText();
         discoMasFam = tfDiscoMasFamoso.getText();
-        discoVentas = tfDiscoVentas.getText();
+        if (tfDiscoVentas.getText().isEmpty()) {
+            discoVentas = 0;
+        } else {
+            discoVentas = Integer.parseInt(tfDiscoVentas.getText());
+        }
         ListaCantantesFamosos.añadir(nombreCan, discoMasFam, discoVentas);
     }
 
@@ -227,19 +237,22 @@ public class VentanaCantantes extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {
         nombreCan = tfNombreCantante.getText();
         discoMasFam = tfDiscoMasFamoso.getText();
-        discoVentas = tfDiscoVentas.getText();
+        if (tfDiscoVentas.getText().isEmpty()) {
+            discoVentas = 0;
+        } else {
+            discoVentas = Integer.parseInt(tfDiscoVentas.getText());
+        }
         ListaCantantesFamosos.modificar(nombreCan, discoMasFam, discoVentas);
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
         nombreCan = tfNombreCantante.getText();
-        discoMasFam = tfDiscoMasFamoso.getText();
-        discoVentas = tfDiscoVentas.getText();
-        ListaCantantesFamosos.eliminar(nombreCan, discoMasFam, discoVentas);
+
+        ListaCantantesFamosos.eliminar(nombreCan);
     }
 
     private void btnListadoActionPerformed(java.awt.event.ActionEvent evt) {
-        ListaCantantesFamosos.mostrar(nombreCan, discoMasFam, discoVentas);
+        ListaCantantes.mostrar();
     }
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {

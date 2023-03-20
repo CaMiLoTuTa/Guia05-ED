@@ -1,6 +1,8 @@
 package CantantesFamosos.Code;
 
-public class App {
+import CantantesFamosos.Visual.VentanaCantantes;
+
+public class App extends javax.swing.JFrame {
 
 // ? Crear un programa para manejar cantantes famosos y sus discos más conocidos.
 // ? Crea una clase denominada ListaCantantesFamosos que disponga de un atributo
@@ -22,7 +24,14 @@ public class App {
 // ? que dé opción a elegir al usuario).
 // ? Ajustar el ejercicio para que muestre un menú en donde el usuario pueda:
 // ? F.	Eliminar cantantes 
-// ? G.	Modificar Nombre del cantante
-// ! H.	Incluir en el menú la posibilidad de generar una lista con los cantantes con 
-// ! más discos vendidos de mayor a menor.
+// ? G.	Modificar Nombre del cantante (NO TIENE SENTIDO MODIFICAR EL NOMBRE DEL 
+// ? CANTANTE, EN CAMBIO EL NOMBRE Y LAS VENTAS DEL DISCO SI PUEDEN VARIAR).
+// ? H.	Incluir en el menú la posibilidad de generar una lista con los cantantes con 
+// ? más discos vendidos de mayor a menor.
+    static VentanaCantantes vc = new VentanaCantantes();
+
+    public static void main(String[] args) {
+        vc.setVisible(true);
+
+    }
 }

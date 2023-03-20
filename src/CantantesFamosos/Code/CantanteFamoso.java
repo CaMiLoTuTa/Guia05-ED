@@ -1,8 +1,9 @@
 package CantantesFamosos.Code;
 
-public class CantanteFamoso {
+public class CantanteFamoso implements Comparable<CantanteFamoso> {
 
-    String nombre, discoMasFamoso, discoVentas;
+    private String nombre, discoMasFamoso;
+    private int discoVentas;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -20,12 +21,16 @@ public class CantanteFamoso {
         return discoMasFamoso;
     }
 
-    public void setDiscoVentas(String discoVentas) {
+    public void setDiscoVentas(int discoVentas) {
         this.discoVentas = discoVentas;
     }
 
-    public String getDiscoVentas() {
+    public int getDiscoVentas() {
         return discoVentas;
     }
 
+    @Override
+    public int compareTo(CantanteFamoso cantFam) {
+        return Integer.compare(this.discoVentas, cantFam.getDiscoVentas());
+    }
 }
