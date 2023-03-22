@@ -28,7 +28,7 @@ public class VentanaListaEstudiantes extends javax.swing.JFrame {
     static VentanaListaEstudiantes vle = new VentanaListaEstudiantes();
 
     public static void mostrar() {
-        if (VentanaEstudiante.curso.isEmpty()) {
+        if (VentanaPrincipal.curso.isEmpty()) {
             JOptionPane.showMessageDialog(null, "NO HAY ESTUDIANTES REGISTRADOS.");
 
         } else {
@@ -42,7 +42,7 @@ public class VentanaListaEstudiantes extends javax.swing.JFrame {
             model.addColumn("Celular");
             model.addColumn("Programa");
 
-            for (Map.Entry<String, Estudiante> i : VentanaEstudiante.curso.entrySet()) {
+            for (Map.Entry<String, Estudiante> i : VentanaPrincipal.curso.entrySet()) {
                 String cod = i.getKey();
                 String nom = i.getValue().getNombres() + " " + i.getValue().getApellidos();
                 String dir = i.getValue().getDireccion();

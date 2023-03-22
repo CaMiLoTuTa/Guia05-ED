@@ -14,7 +14,7 @@ import javax.swing.*;
  *
  * @author tutaa
  */
-public class VentanaEstudiante extends javax.swing.JFrame {
+public class VentanaPrincipal extends javax.swing.JFrame {
     // ? A. Crear una clase Estudiantes con los siguientes atributos: nombres,
     // ? apellidos, dirección,teléfono, carrera.
     // ? B. Crear una clase GestionEstudiantes donde incluya un HashMap un código
@@ -25,7 +25,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
 
     static HashMap<String, Estudiante> curso = new HashMap<String, Estudiante>();
 
-    public VentanaEstudiante() {
+    public VentanaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -47,6 +47,8 @@ public class VentanaEstudiante extends javax.swing.JFrame {
 
         } else if (curso.containsKey(codEst) && bool == 0) {
             JOptionPane.showMessageDialog(null, "EL ESTUDIANTE YA SE ENCUENTRA REGISTRADO.");
+        } else if (!curso.containsKey(codEst) && bool == 1) {
+            JOptionPane.showMessageDialog(null, "EL ESTUDIANTE NO SE ENCUENTRA REGISTRADO.");
 
         } else {
             estAgregar.setNombres(nombresEst);
@@ -60,8 +62,8 @@ public class VentanaEstudiante extends javax.swing.JFrame {
             limpiar();
         }
     }
-
     // ? • Consultar información.
+
     private void buscar() {
         codEst = tfCodigo.getText();
 
@@ -344,19 +346,19 @@ public class VentanaEstudiante extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaEstudiante.class
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaEstudiante.class
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaEstudiante.class
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaEstudiante.class
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -364,7 +366,7 @@ public class VentanaEstudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEstudiante().setVisible(true);
+                new VentanaPrincipal().setVisible(true);
             }
         });
     }

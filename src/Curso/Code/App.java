@@ -4,18 +4,18 @@
  */
 package Curso.Code;
 
-import Curso.Visual.VentanaEstudiante;
+import Curso.Visual.VentanaPrincipal;
 
 /**
  *
  * @author tutaa
  */
 public class App {
-    
-    static VentanaEstudiante ve = new VentanaEstudiante();
-    
+
+    static VentanaPrincipal ve = new VentanaPrincipal();
+
     public static void main(String[] args) {
         ve.setVisible(true);
     }
-    
+
 }
